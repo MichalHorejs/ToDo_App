@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% load static %}
+{% block main_title %}Register{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'register_authentication' %}" method="post" >{% csrf_token %}
+        <p>
+            Username: <label><input class="input" type="text" name="username" maxlength="15" required /></label><br/>
+            Password: <label><input class="input" type="password" name="password" required /></label><br/>
+            Password again: <label><input class="input" type="password" name="password_again" required /></label><br/>
+            <input class="form-submit-button" type="submit" value="Register" /><br /><br />
+            {{ state }}
+            {% if state == "Your passwords doesn't match " or state == 'User already exists ' %}
+                <img class="exclamation" width="30px" height="30px" alt="exclamation" src="{% static 'images/exclamation.png' %}" />
+            {% endif %}
+        </p>
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+

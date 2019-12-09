@@ -1,0 +1,37 @@
+form {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.exclamation {
+    vertical-align: middle;
+}
+
+.form-submit-button {
+    background: #364147;
+    color: #FCF6F5FF;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+    font-size: 25px;
+}
+
+.form-submit-button:hover {
+    background: #FA7E1E;
+    color: #FCF6F5FF;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow:none;
+}
+
+.input {
+    margin-bottom: 7px;
+    border-radius: 10px;
+    height: 30px;
+}
+
+
+
+
