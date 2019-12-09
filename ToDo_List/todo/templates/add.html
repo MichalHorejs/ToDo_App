@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block main_title %}Add Task{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/form.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'save_task' %}" method="post"> {% csrf_token %}
+        <p>
+            Enter your task: <br />
+            <input class="input"  type="text" name="task" size="20" required/><br />
+            <label><input maxlength="100" class="form-submit-button" type="submit" value="Save" /></label><br /><br />
+        </p>
+    </form>
+{% endblock %}

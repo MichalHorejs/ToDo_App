@@ -1,0 +1,43 @@
+
+table {
+    max-width: 1160px;
+    margin: 25px auto;
+}
+
+thead th {
+    font-weight: 400;
+    background: url("../images/background_nav.png");
+    color: #FCF6F5FF;
+}
+
+tr {
+    background: #f4f7f8;
+    border-bottom: 1px solid #FFF;
+    margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+    background: url("../images/background_index.png");
+}
+
+th, td {
+    text-align: left;
+    padding: 20px;
+    font-weight: 300;
+}
+
+tbody th {
+    color: #364147;
+}
+
+.todo_img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.remove_img {
+    width: 15px;
+    height: 15px;
+    vertical-align: center;
+}

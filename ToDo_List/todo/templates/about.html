@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block main_title %}About{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="p_container">
+        <p class="main_text">
+            <img alt="profile_picture" src="{% static 'images/profile_pic.png' %}"/>
+            Hi, thanks for visiting my site. My name is Michael and I'm so proud I made this as my first website.
+            I made this from scratch because I wanted to train my back-end skills and for the first time I learnt
+            some basics about webdesign too. Whole page runs on django and python. I hope my basic app helps you
+            to order things you need to.
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block main_title %}Home{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static "styles/home.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "styles/table.css" %}"/>
+    <link rel="icon" href="{% static "images/todo.png" %} "/>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+{% block nav %}
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav_ul">
+                    <li class="nav_li"><img class="nav_img" alt="Todo pic" src="{% static "images/todo.png" %}"></li>
+                    <li class="nav_li"><a class="nav_a" href="{% url 'home' %}">ToDo List</a></li>
+                    <li class="nav_li"><a class="nav_a" href="{% url 'about' %}">About</a></li>
+                    {% if logged %}
+                        <li class="nav_li">
+                            <div class="nav_a">{{ user }}</div>
+                        </li>
+                        <li class="nav_li"><a class="nav_a" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav_li"><a class="nav_a" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav_li"><a class="nav_a" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+        <tr>
+            <th>Task</th>
+            {% if logged %}
+                <th><a href="{% url 'add_task' %}"><img width="30px" alt="add_image"
+                                                        src="{% static 'images/add.png' %}"></a></th>
+            {% else %}
+                <th></th>
+            {% endif %}
+        </tr>
+        </thead>
+        {% if logged %}
+            {% for task in tasks %}
+                <tr>
+                    <th>{{ task }}</th>
+                    <form action="{% url 'remove_task' %}" method="get">
+                        <th>
+                            <input type="hidden" name="task_id" value="{{ task.id }}"/>
+                            <center><input type="image" class="remove_img" src="{% static 'images/remove.png' %}"
+                                           alt="remove_img"/></center>
+                        </th>
+                    </form>
+
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tbody>
+            <tr>
+                <th>If u are new, register now ! Otherwise click on login.</th>
+                <th><img class="remove_img" alt="remove_img" src="{% static 'images/remove.png' %}"/></th>
+            </tr>
+            <tr>
+                <th>Use your name and password.</th>
+                <th><img class="remove_img" alt="remove_img" src="{% static 'images/remove.png' %}"/></th>
+            </tr>
+            <tr>
+                <th>Click Login/Register.</th>
+                <th><img class="remove_img" alt="remove_img" src="{% static 'images/remove.png' %}"/></th>
+            </tr>
+            <tr>
+                <th>You are ready to use the app.
+                    <img class="todo_img" alt="approved" src="{% static 'images/approved.png' %}"/></th>
+                <th><img class="remove_img" alt="remove_img" src="{% static 'images/remove.png' %}"/></th>
+            </tr>
+            </tbody>
+        {% endif %}
+    </table>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        Created by &copy; Michal Horejš in 2020.
+    </footer>
+{% endblock %}
+
+</body>
+</html>
